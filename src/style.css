@@ -1,0 +1,46 @@
+.container {
+	width: 90%;
+	margin-top: 50px;
+	background: rgb(206, 212, 250);
+	font-family: "Gill Sans MT", monospace;
+}
+.input-group {
+	width: 40%;
+	margin-top: 30px;
+}
+.form-control {
+	margin-top: 10px;
+}
+.btn {
+	margin-top: 10px;
+}
+.emoji {
+	text-align: right;
+	font-size: 2.4em;
+	margin-top: -10px;
+}
+.card-title {
+	font-size: 1.7em;
+}
+.card-text {
+	font-size: 1em;
+}
+.card {
+	background: rgb(153, 166, 228);
+}
+.list-group {
+	width: 171px;
+}
+.list-group-item {
+	background: rgb(206, 212, 250);
+	text-align: left;
+}
+.table {
+	border: gray;
+}
+ul {
+	list-style-type: square;
+}
+body {
+	background-color: black;
+}

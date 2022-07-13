@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <title>Weather</title>  
+   <meta charset="UTF-8">
+  <link href="src/style.css" rel="stylesheet" type="text/css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+   
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="input-group">
+          <form id="search-form">
+        <input
+          type="text"
+              id="input-search"
+          class="input-search"
+          placeholder="Type your city..."
+        />
+        <button class="btn btn-primary" type="submit" ">Search</button>
+        
+      </div>
+      
+    
+      <h1 id="cityName">Lviv</h1><br/>
+      <h2><strong>+22°C</strong></h2>
+      <h3 class="card-title"></h3><br>
+       <div class="row">
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              
+              <h5 class="card-title">Mon</h5>
+              <p class="card-text"><strong>+24°C</strong><br />+18°C</p>
+              <h3 class="emoji">🌞</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tue</h5>
+              <p class="card-text"><strong>+22°C</strong><br />+16°C</p>
+              <h3 class="emoji">⛅</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Wed</h5>
+              <p class="card-text"><strong>+19°C</strong><br />+13°C</p>
+              <h3 class="emoji">🌧️</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Thu</h5>
+              <p class="card-text"><strong>+20°C</strong><br />+15°C</p>
+              <h3 class="emoji">🌦️</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Fri</h5>
+              <p class="card-text"><strong>+23°C</strong><br />+17°C</p>
+              <h3 class="emoji">⛅</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sat</h5>
+              <p class="card-text"><strong>+26°C</strong><br />+18°C</p>
+              <h3 class="emoji">🌞</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            
+            <br />
+            <ul class="list">
+              <li class="list">RealFeel Shade: 20°C</li>
+              <li class="list">Wind: 19 km/h</li>
+              <li class="list">Humidity: 59%</li>
+            </ul>
+          </div>
+          <div class="col-sm-8 other">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>18:00</th>
+                    <th>19:00</th>
+                    <th>20:00</th>
+                    <th>21:00</th>
+                    <th>22:00</th>
+                    <th>23:00</th>
+                    <th>00:00</th>
+                    <th>01:00</th>
+                    <th>02:00</th>
+                    <th>03:00</th>
+                    <th>04:00</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>T°C</td>
+                    <td>+22°C</td>
+                    <td>+21°C</td>
+                    <td>+20°C</td>
+                    <td>+19°C</td>
+                    <td>+19°C</td>
+                    <td>+19°C</td>
+                    <td>+19°C</td>
+                    <td>+18°C</td>
+                    <td>+18°C</td>
+                    <td>+18°C</td>
+                    <td>+19°C</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>Wind</td>
+                    <td>19 km/h</td>
+                    <td>20 km/h</td>
+                    <td>17 km/h</td>
+                    <td>16 km/h</td>
+                    <td>13 km/h</td>
+                    <td>16 km/h</td>
+                    <td>14 km/h</td>
+                    <td>13 km/h</td>
+                    <td>12 km/h</td>
+                    <td>10 km/h</td>
+                    <td>13 km/h</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td>Humidity</td>
+                    <td>59%</td>
+                    <td>62%</td>
+                    <td>64%</td>
+                    <td>61%</td>
+                    <td>58%</td>
+                    <td>54%</td>
+                    <td>51%</td>
+                    <td>53%</td>
+                    <td>55%</td>
+                    <td>58%</td>
+                    <td>60%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
