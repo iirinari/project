@@ -1,180 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   <title>Weather</title>  
-   <meta charset="UTF-8">
-  <link href="src/style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-   
+    <link rel="stylesheet" href="src/styles.css">
+	<title>Weather App</title>
   </head>
 
   <body>
     <div class="container">
-      <div class="input-group">
-          <form id="search-form">
-        <input
-          type="text"
-              id="input-search"
-          class="input-search"
-          placeholder="Type your city..."
-        />
-        <button class="btn btn-primary" type="submit" ">Search</button>
-        
-      </div>
-      
-    
-      <h1 id="cityName">Lviv</h1><br/>
-      <h2><strong>+22°C</strong></h2>
-      <h3 class="card-title"></h3><br>
-       <div class="row">
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              
-              <h5 class="card-title">Mon</h5>
-              <p class="card-text"><strong>+24°C</strong><br />+18°C</p>
-              <h3 class="emoji">🌞</h3>
-            </div>
-          </div>
+      <div class="weather-app">
+        <div id="city-form">
+          <form class="search" id="search-form">
+            <input
+              class="search-place"
+              type="search"
+              autofocus="on"
+              autocomplete="off"
+              placeholder="What your city?"
+              id="search-button"
+            />
+            <input class="search-button" type="submit" value="Search" />
+          </form>
         </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Tue</h5>
-              <p class="card-text"><strong>+22°C</strong><br />+16°C</p>
-              <h3 class="emoji">⛅</h3>
+
+        <div class="main-body">
+          <h1 id="city"><strong></strong></h1>
+          <h5 id="curent-date"></h5>
+
+          <div class="row">
+            <div class="col-5 empty"></div>
+
+            <div class="col-2" id="icon">
+              <img
+                class="animated-icon"
+                alt="icon1"
+                id="current-weather-icon"
+              />
+              <div class="icon1" id="description"></div>
+              <div class="temperature">
+                <span id="temperatureNow"></span>
+                <span id="units">
+                  <a href="#" class="active" id="celsius-link">°C </a> |
+                  <a href="#" class="fahrenheit" id="fahrenheit-link">°F</a>
+                </span>
+              </div>
+              <div class="MaxMin">
+                <span id="max-temperature"></span>
+                <span id="min-temperature"></span>
+              </div><br>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Wed</h5>
-              <p class="card-text"><strong>+19°C</strong><br />+13°C</p>
-              <h3 class="emoji">🌧️</h3>
+
+            <div class="col-5" id="daily-description">
+              <p class="description">
+                Feels like: <span id="feels-like"> 30</span>°C
+              </p>
+              <p class="description">
+                Humidity : <span id="humidity"> 30 </span> %
+              </p>
+              <p class="description">Wind: <span id="wind"></span> km/h</p>
+              <img class="compas" src="img/compas-wind.jpg" alt="" />
             </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Thu</h5>
-              <p class="card-text"><strong>+20°C</strong><br />+15°C</p>
-              <h3 class="emoji">🌦️</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Fri</h5>
-              <p class="card-text"><strong>+23°C</strong><br />+17°C</p>
-              <h3 class="emoji">⛅</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sat</h5>
-              <p class="card-text"><strong>+26°C</strong><br />+18°C</p>
-              <h3 class="emoji">🌞</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            
-            <br />
-            <ul class="list">
-              <li class="list">RealFeel Shade: 20°C</li>
-              <li class="list">Wind: 19 km/h</li>
-              <li class="list">Humidity: 59%</li>
-            </ul>
-          </div>
-          <div class="col-sm-8 other">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>18:00</th>
-                    <th>19:00</th>
-                    <th>20:00</th>
-                    <th>21:00</th>
-                    <th>22:00</th>
-                    <th>23:00</th>
-                    <th>00:00</th>
-                    <th>01:00</th>
-                    <th>02:00</th>
-                    <th>03:00</th>
-                    <th>04:00</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>T°C</td>
-                    <td>+22°C</td>
-                    <td>+21°C</td>
-                    <td>+20°C</td>
-                    <td>+19°C</td>
-                    <td>+19°C</td>
-                    <td>+19°C</td>
-                    <td>+19°C</td>
-                    <td>+18°C</td>
-                    <td>+18°C</td>
-                    <td>+18°C</td>
-                    <td>+19°C</td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>Wind</td>
-                    <td>19 km/h</td>
-                    <td>20 km/h</td>
-                    <td>17 km/h</td>
-                    <td>16 km/h</td>
-                    <td>13 km/h</td>
-                    <td>16 km/h</td>
-                    <td>14 km/h</td>
-                    <td>13 km/h</td>
-                    <td>12 km/h</td>
-                    <td>10 km/h</td>
-                    <td>13 km/h</td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>Humidity</td>
-                    <td>59%</td>
-                    <td>62%</td>
-                    <td>64%</td>
-                    <td>61%</td>
-                    <td>58%</td>
-                    <td>54%</td>
-                    <td>51%</td>
-                    <td>53%</td>
-                    <td>55%</td>
-                    <td>58%</td>
-                    <td>60%</td>
-                  </tr>
-                </tbody>
-              </table>
+          </div><br>
+          <div class="weather-forecast" id="forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="card">
+                  <div class="card-body">
+                    <ul>
+                      <li class="day">Thu</li>
+                      <li class="">
+                        <img class="animated-icon" src="" alt="" width="55" />
+                      </li>
+                      <li class="day-temperature"><strong> 24°</strong>⁄17°</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <br /><br />
     </div>
     <script src="src/index.js"></script>
   </body>
- <footer> <a href>https://github.com/iirinari/project.git</href></footer>
+  <footer> <a href="https://github.com/iirinari/weather-app" target="_blank">Open-source code</a> by Iryna Rishko</href></footer>
+
 </html>
